@@ -1,6 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>All aderts in one place!</h1>
+            <p>This is a simple advertisment web site.</p>
+            {% if app.user.username is not defined %}
+                <p>Please register if you are new here.</p>
+                <p><a class="btn btn-primary btn-lg" href="/register" role="button">Register »</a></p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+    {# TODO this is for test only #}
     {{ content }}
     <!-- Example row of columns -->
         <div class="row">
@@ -26,7 +38,7 @@
                 <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
             </div>
         </div>
-
+    </div>
 {% endblock %}
 
 {% block stylesheets %}{% endblock %}
