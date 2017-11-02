@@ -3,13 +3,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.username, {'attr': {'class': 'form-control', 'placeholder':'User Name'}}) }}
-        {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder':'E-mail'}}) }}
-        {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder':'Password'}}) }}
-        {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder':'Repeat password'}}) }}
-        <button class="btn btn-primary" type="submit">Register!</button>
-    {{ form_end(form) }}
+    <div class="container">
+        {{ form_start(form) }}
+            {{ form_row(form.username, {'attr': {'class': 'form-control', 'placeholder':'User Name'}}) }}
+            {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder':'E-mail'}}) }}
+            {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder':'Password'}}) }}
+            {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder':'Repeat password'}}) }}
+            <button class="btn btn-primary" type="submit">Register!</button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
 
 {% block stylesheets %}{% endblock %}

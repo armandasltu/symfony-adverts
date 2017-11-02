@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <table class="table">
+            <caption>{{ content }}</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Advert title</th>
+                <th>Publish date</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for advert in adverts %}
+            <tr>
+                <th scope="row">{{ advert.id }}</th>
+                <td>{{ advert.title }}</td>
+                <td>{{ advert.PublishDate|date('Y, F j, g:i a') }}</td>
+                <td>actions</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
