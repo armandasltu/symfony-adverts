@@ -10,14 +10,12 @@
 
     <title>{% block title %}Welcome!{% endblock %}</title>
 
+    <link rel="stylesheet" href="{{ asset('styles/style.css') }}" />
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-
-    {#<!-- Custom styles for this template -->#}
-    {#<link href="jumbotron.css" rel="stylesheet">#}
 </head>
 
 <body cz-shortcut-listen="true">
@@ -32,13 +30,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Adverts</a>
+                <a class="navbar-brand" href="/">Adverts</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 {% if app.user.username is defined %}
-                    <div class="navbar-right navbar-text">
-                        Logged in as: {{ app.user.username }}
-                        <a href="/logout">Log out</a>
+                    <div class="navbar-right navbar-text btn-group">
+                        <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            User: {{ app.user.username }}
+                            <span class="caret"></span>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="/advert/create" class="dropdown-item" type="button">Create advert</a></li>
+                            <li><a href="/advert/list" class="dropdown-item" type="button">My adverts</a></li>
+                            <li><a href="/logout" class="dropdown-item" type="button">Log out</a></li>
+                        </ul>
                     </div>
                 {% else %}
                     <div class="navbar-right navbar-text">
